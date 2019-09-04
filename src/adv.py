@@ -37,10 +37,20 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
+def inputField():
+    user = input('Check available path in this room? or Quit\n')
+    userInput = lowerCaseString(user.split())
+
+    return userInput
+def lowerCaseString(string):
+    for i, s in enumerate(string):
+        string[i] = s.lower()
+    return string
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player(name=input("What is your name Player?  "),currentRoom = room['outside'])
-print(player.name, player.currentRoom)
+player = Player("Hugo", room['outside'])
+print(f'Time to play {player.name}!!\nYou are located in {player.currentRoom}\n')
+usercmd = inputField()
 # Write a loop that:
 #
 # * Prints the current room name

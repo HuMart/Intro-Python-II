@@ -17,7 +17,7 @@ class Room:
         return ''+self.name+''+self.desc+''
 
     def check_path(self):
-        self.paths = [{"north": self.n_to, "south": self.s_to, "east": self.e_to, "west": self.w_to}]
+        self.path = [{"north": self.n_to, "south": self.s_to, "east": self.e_to, "west": self.w_to}]
         routes = []
         for p in self.path:
             for r in p:
