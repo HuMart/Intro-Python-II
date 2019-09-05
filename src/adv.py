@@ -37,20 +37,9 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-def inputField():
-    user = input('Check available path in this room? yes or Quit\n')
-    userInput = lowerCaseString(user.split())
-
-    return userInput
-def lowerCaseString(string):
-    for i, s in enumerate(string):
-        string[i] = s.lower()
-    return string
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player("Hugo", room['outside'])
-print(f'Time to play {player.name}!!\nYou are located in {player.currentRoom}\n')
-usercmd = inputField()
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -59,11 +48,22 @@ usercmd = inputField()
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
-while not usercmd[0] == 'quit':
-    if usercmd[0] == 'yes': 
-        path = player.currentRoom.check_path()
-        routes = player.currentRoom.path
-        
+       
 
 #
 # If the user enters "q", quit the game.
+player = Player("Hugo", room['outside'])
+
+cmd = ''
+
+while cmd is not 'q':
+    cmd = input("enter a direction: e, w, s, n, or press q to quit----\n")
+    if cmd == 'n' or cmd == 'e' or cmd == 'w' or cmd == 's':
+        print(cmd)
+        print(player.move(cmd))
+    elif cmd == 'q':
+        print('Game Over')
+    else:
+        print('Enter a valid direction')
+
+print('See you in the next adventure!!')
