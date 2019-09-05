@@ -54,14 +54,16 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 player = Player("Hugo", room['outside'])
 
-cmd = ''
 
-while cmd is not 'q':
-    cmd = input("enter a direction: e, w, s, n, or press q to quit----\n")
+quit = False
+
+while not quit:
+    cmd = input("Enter a direction:\n(e)ast\n(w)east\n(n)orth\n(s)outh\nor (q)uit----\n")
+    cmd = cmd.lower().strip()[0]
     if cmd == 'n' or cmd == 'e' or cmd == 'w' or cmd == 's':
-        print(cmd)
         print(player.move(cmd))
     elif cmd == 'q':
+        quit = True
         print('Game Over')
     else:
         print('Enter a valid direction')

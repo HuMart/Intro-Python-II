@@ -5,10 +5,11 @@ class Room:
     def __init__(self, name, desc):
         self.name = name
         self.desc = desc
-        self.n_to = ''
-        self.s_to = ''
-        self.e_to = ''
-        self.w_to = ''
-        self.path = []
+
+    n_to = ''
+    s_to = ''
+    e_to = ''
+    w_to = ''
+        
 
 
