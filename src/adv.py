@@ -38,7 +38,7 @@ room['treasure'].s_to = room['narrow']
 # Main
 #
 def inputField():
-    user = input('Check available path in this room? or Quit\n')
+    user = input('Check available path in this room? yes or Quit\n')
     userInput = lowerCaseString(user.split())
 
     return userInput
@@ -59,6 +59,11 @@ usercmd = inputField()
 #
 # If the user enters a cardinal direction, attempt to move to the room there.
 # Print an error message if the movement isn't allowed.
+while not usercmd[0] == 'quit':
+    if usercmd[0] == 'yes': 
+        path = player.currentRoom.check_path()
+        routes = player.currentRoom.path
+        
 
 #
 # If the user enters "q", quit the game.
